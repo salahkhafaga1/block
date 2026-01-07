@@ -17,14 +17,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # هذه هي الخطوة الجديدة والمهمة جداً
-    - name: Setup Gradle
+    - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: '8.0'
-
-    - name: Build with Gradle
-      run: gradle assembleDebug
+        arguments: assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v3
